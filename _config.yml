@@ -3,9 +3,9 @@ description: "A NeurIPS 2023 Paper by"
 buttons:
   arXiv: 'https://arxiv.org/abs/2302.11084'
   Code: "https://github.com/fengyuli-dev/distribution-normalization"
-  Poster: "/pending"
-  Video: "/pending"
-  Slides: "/pending"
+  Poster: "/subpage/pending"
+  Video: "/subpage/pending"
+  Slides: "/subpage/pending"
 theme: jekyll-theme-cayman
 # remote_theme: pages-themes/cayman@v0.2.0
 # plugins:
