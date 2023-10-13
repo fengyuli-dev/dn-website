@@ -1,11 +1,8 @@
-title: "Distribution Normalization: An “Effortless” Test-Time Augmentation for Contrastively Learned Visual-language Models"
+title: Test-Time Distribution Normalization For Contrastively Learned Vision-language Models
 description: "A NeurIPS 2023 Paper by"
 buttons:
-  arXiv: 'https://arxiv.org/abs/2302.11084'
+  Paper: "https://arxiv.org/abs/2302.11084"
   Code: "https://github.com/fengyuli-dev/distribution-normalization"
-  Poster: "/subpage/pending"
-  Video: "/subpage/pending"
-  Slides: "/subpage/pending"
 theme: jekyll-theme-cayman
 # remote_theme: pages-themes/cayman@v0.2.0
 # plugins:
