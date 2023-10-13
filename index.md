@@ -38,36 +38,29 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 ### Results
 
-```{=latex}
-\begin{table*}[h]
-\begin{center}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{ l | c c c c c c | c c c c c c }
-\toprule[1pt]
-&\multicolumn{6}{c}{MSCOCO (5K test set)} & \multicolumn{6}{c}{Flickr30K (1K test set)} \\
-&\multicolumn{3}{c}{Image $\rightarrow$ Text} & \multicolumn{3}{c}{Text $\rightarrow$ Image} & \multicolumn{3}{c}{Image $\rightarrow$ Text} & \multicolumn{3}{c}{Text $\rightarrow$ Image}\\
-\midrule
- & R@1 & R@5 & R@10 & R@1 & R@5 & R@10 & R@1 & R@5 & R@10 & R@1 & R@5 & R@10\\
-CLIP \cite{clip} & $52.4$ & $76.0$ & $84.5$ &$ 30.2$ & $55.1$ & $66.4$ & $81.3$ & $95.0$ & $98.5$ & $62.7$ & $86.0$ & $92.0$\\
-CLIP + TTA \cite{shanmugam2021better} & $53.9$ & $77.5$ & $85.5$ & $32.1$ & $57.5$ & $68.3$ & $83.2$ & $96.8$ & $98.4$ & $65.2$ & $87.9$ & $92.9$\\
-CLIP + TTA + DN  & $53.6 \pm 0.1$ & $76.9 \pm 0.1$ & $84.8 \pm 0.1$ & $\textbf{34.8} \pm 0.0$ & $\textbf{60.4} \pm 0.0$ & $\textbf{70.8} \pm 0.1$ & $\textbf{85.8} \pm 0.2$ & $\textbf{97.5} \pm 0.1$ & $\textbf{99.1} \pm 0.0$ & $\textbf{68.1} \pm 0.1$ & $\textbf{89.4} \pm 0.1$ & $\textbf{94.1} \pm 0.0$\\
-CLIP + TTA + DN* & $\textbf{54.7} \pm 0.1$ & $\textbf{77.8} \pm 0.1$ & $\textbf{85.6} \pm 0.1$ & $33.8 \pm 0.0$ & $59.4 \pm 0.0$ & $70.1 \pm 0.0$ & $\textbf{85.8} \pm 0.1 $ & $\textbf{97.5} \pm 0.1$ & $98.8 \pm 0.1$ & $67.6 \pm 0.0$ & $89.1 \pm 0.0$ & $93.9 \pm 0.1$\\
-CLIP + DN & $51.7 \tiny{\pm 0.1}$ & $75.8 \tiny{\pm 0.1}$& $84.0 \tiny{\pm 0.1}$ &$ 33.4 \tiny{\pm 0.0}$& $58.6 \tiny{\pm 0.1}$ & $69.4 \tiny{\pm 0.1}$ & $83.3 \tiny{\pm 0.2} $ & $96.4 \tiny{\pm 0.1}$ & $98.6 \tiny{\pm 0.1}$ & $66.2 \tiny{\pm 0.1}$ & $88.2 \tiny{\pm 0.1}$& $93.3 \tiny{\pm 0.1}$\\
-CLIP + DN* & $52.9 \tiny{\pm 0.1}$ & $76.4 \tiny{\pm 0.1}$& $84.9 \tiny{\pm 0.1}$ &$ 32.1 \tiny{\pm 0.1}$& $57.4 \tiny{\pm 0.0}$ & ${68.3} \tiny{\pm 0.1}$ & ${83.5} \tiny{\pm 0.1} $ & $96.2 \tiny{\pm 0.0}$ & $98.5 \tiny{\pm 0.1}$ & $64.8 \tiny{\pm 0.2}$ & $87.5 \tiny{\pm 0.1}$& $93.1 \tiny{\pm 0.0}$\\
-\midrule
-TCL \cite{tcl} & $57.6$ & $84.3$ & $91.8$ & $41.8$ & $70.6$ &$ 80.6$ &$ 73.8$ & $93.3$ &$ 96.9$ & $59.1$ & $84.6$ & $91.1$\\
-TCL + DN  & $\textbf{60.6} \tiny{\pm 0.1}$ & $\textbf{85.8} \tiny{\pm 0.1}$ & $\textbf{92.4} \tiny{\pm 0.1}$ & $\textbf{43.2} \tiny{\pm 0.0}$ & $\textbf{71.8} \tiny{\pm 0.1}$ & $\textbf{81.6} \tiny{\pm 0.0}$ & $77.5 \tiny{\pm 0.5}$ & $94.1 \tiny{\pm 0.2}$ & $\textbf{96.9} \tiny{\pm 0.2}$ & $59.8 \tiny{\pm 0.2}$ & $84.9 \tiny{\pm 0.1}$ & $91.1 \tiny{\pm 0.1}$\\
-TCL + DN* & $59.5 \tiny{\pm 0.1}$ & $85.2 \tiny{\pm 0.0}$ & $92.2 \tiny{\pm 0.1}$ & $42.7 \tiny{\pm 0.0}$ & $71.5 \tiny{\pm 0.0}$ & $81.3 \tiny{\pm 0.0}$ & $75.5 \tiny{\pm 0.0}$ & $\textbf{94.4} \tiny{\pm 0.1}$ & $ 96.9 \tiny{\pm 0.1}$ & $\textbf{60.0} \tiny{\pm 0.1}$ & $\textbf{85.1} \tiny{\pm 0.0}$ & $91.1 \tiny{\pm 0.0}$\\
-\midrule
-ALBEF \cite{albef} & $62.5$ & $85.9$ &$ 92.2$ & $40.2 $& $68.4$ & $78.9$ & $78.2$ & $95.5$ & $97.9$ & $59.9$ & $84.8$ & $90.6$ \\
-ALBEF + DN  &$ \textbf{63.0} \tiny{\pm 0.2}$ & $85.8 \tiny{\pm 0.1}$ & $92.4 \tiny{\pm 0.1}$ & $\textbf{44.8} \tiny{\pm 0.1}$ & $\textbf{72.5} \tiny{\pm 0.0}$ & $\textbf{82.0} \tiny{\pm 0.0}$ & $\textbf{80.6} \tiny{\pm 0.1}$ & $\textbf{96.2} \tiny{\pm 0.1}$ & $\textbf{98.3} \tiny{\pm 0.1}$ & $\textbf{64.1} \tiny{\pm 0.0}$ & $\textbf{87.1} \tiny{\pm 0.1}$ & $\textbf{92.3} \tiny{\pm 0.1}$\\
-ALBEF +DN* &$ \textbf{63.0} \tiny{\pm 0.1}$ & $\textbf{86.0} \tiny{\pm 0.0}$ & $\textbf{92.5} \tiny{\pm 0.1}$ & $42.8 \tiny{\pm 0.1}$ & $70.8 \tiny{\pm 0.0}$ & $80.7 \tiny{\pm 0.0}$ & $79.2 \tiny{\pm 0.1}$ & $\textbf{96.2} \tiny{\pm 0.0}$ & $98.0 \tiny{\pm 0.0}$ & $62.4 \tiny{\pm 0.1}$ & $86.1 \tiny{\pm 0.1}$ & $91.9 \tiny{\pm 0.1}$\\
-\bottomrule[1pt]
-\end{tabular}}
-\caption{Cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting. Means for DN are estimated using 100 random unlabeled validation samples. Average recalls and standard deviations are calculated with 5 random seeds.}
-\label{table:zeroshot_retrieval}
-\end{center}
-\end{table*}
+```{r, results = "asis", echo = FALSE, message = FALSE}
+library(knitr)
+
+tex2markdown <- function(texstring) {
+  writeLines(text = texstring,
+             con = myfile <- tempfile(fileext = ".tex"))
+  texfile <- pandoc(input = myfile, format = "html")
+  cat(readLines(texfile), sep = "\n")
+  unlink(c(myfile, texfile))
+}
+
+textable <- "
+\\begin{table}[]
+\\centering
+\\caption{Food order}
+\\begin{tabular}{| l | l |}
+\\hline
+ Hamburgers & 3 \\\\
+ Hot dogs & 2 \\\\ \\hline
+\\end{tabular}
+\\end{table}
+"
+tex2markdown(textable)
 ```
 
 ### Authors
@@ -89,14 +82,16 @@ ALBEF +DN* &$ \textbf{63.0} \tiny{\pm 0.1}$ & $\textbf{86.0} \tiny{\pm 0.0}$ & $
 Need change after we update paper version on arXiv.
 
 ```
+
 @misc{zhou2023distribution,
-      title={Distribution Normalization: An "Effortless" Test-Time Augmentation for Contrastively Learned Visual-language Models},
-      author={Yifei Zhou and Juntao Ren and Fengyu Li and Ramin Zabih and Ser-Nam Lim},
-      year={2023},
-      eprint={2302.11084},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+title={Distribution Normalization: An "Effortless" Test-Time Augmentation for Contrastively Learned Visual-language Models},
+author={Yifei Zhou and Juntao Ren and Fengyu Li and Ramin Zabih and Ser-Nam Lim},
+year={2023},
+eprint={2302.11084},
+archivePrefix={arXiv},
+primaryClass={cs.LG}
 }
+
 ```
 
 <!-- Text can be **bold**, _italic_, or ~~strikethrough~~.
@@ -125,7 +120,7 @@ var fun = function lang(l) {
   dateformat.i18n = require('./lang/' + l)
   return true;
 }
-```
+````
 
 ```ruby
 # Ruby code with syntax highlighting
@@ -136,9 +131,9 @@ end
 
 #### Header 4
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+- This is an unordered list following a header.
+- This is an unordered list following a header.
+- This is an unordered list following a header.
 
 ##### Header 5
 
@@ -149,7 +144,7 @@ end
 ###### Header 6
 
 | head1        | head two          | three |
-|:-------------|:------------------|:------|
+| :----------- | :---------------- | :---- |
 | ok           | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
@@ -157,14 +152,14 @@ end
 
 ### There's a horizontal rule below this.
 
-* * *
+---
 
 ### Here is an unordered list:
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+- Item foo
+- Item bar
+- Item baz
+- Item zip
 
 ### And an ordered list:
 
@@ -197,7 +192,6 @@ end
 
 ![Branching](https://guides.github.com/activities/hello-world/branching.png)
 
-
 ### Definition lists can be used with HTML syntax.
 
 <dl>
@@ -217,4 +211,4 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 
 ```
 The final element.
-``` -->
+```
