@@ -38,6 +38,10 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 ### Results
 
+#### Table 1
+
+We first present results on cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting for more CLIP variants. As can be seen from the bolded entries, adding DN improves retrieval accuracy across the board for CLIP, ALBEF, and TCL. Means for DN\* are estimated using 100 random unlabeled validation samples. Average recalls are calculated with 5 random seeds.
+
 <table>
     <tr>
         <td></td>
