@@ -38,7 +38,7 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 ### Results
 
-#### Table 1
+#### Cross-Modal Retrieval
 
 We first present results on cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting for more CLIP variants. As can be seen from the bolded entries, adding DN improves retrieval accuracy across the board for CLIP, ALBEF, and TCL. Means for DN\* are estimated using 100 random unlabeled validation samples. Average recalls are calculated with 5 random seeds.
 
@@ -252,6 +252,247 @@ We first present results on cross-modal retrieval performance on MSCOCO and Flic
     </tr>
 </table>
 
+#### Zero-shot Classification
+
+Next, we present zero-shot classification performance on ImageNet1K, Cifar100, SUN397, Stanford Cars, Caltech 101, and Flowers 102. Means for DN are estimated using 100 random unlabeled validation samples. Average accuracies and standard deviations are calculated with 5 random seeds.
+
+<table>
+    <tr>
+        <td></td>
+        <td>\multicolumn{2}{c}{ImageNet1K}</td>
+        <td>\multicolumn{2}{c}{Cifar100}</td>
+        <td>\multicolumn{2}{c}{SUN397}</td>
+        <td>\multicolumn{2}{c}{Stanford Cars}</td>
+        <td>\multicolumn{2}{c}{Caltech 101}</td>
+        <td>\multicolumn{2}{c}{Flowers 102}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2103.00020" rel="noreferrer nofollow" target="_blank">CLIP</a></td>
+        <td>$61.0$</td>
+        <td>$87.4$</td>
+        <td>$63.9$</td>
+        <td>$88.7$</td>
+        <td>$56.1$</td>
+        <td>$89.4$</td>
+        <td>${58.6}$</td>
+        <td>${90.9}$</td>
+        <td>$82.3$</td>
+        <td>$95.0$</td>
+        <td>$62.1$</td>
+        <td>$83.8$</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2209.14169" rel="noreferrer nofollow" target="_blank">CALIP</a></td>
+        <td>$61.2\pm 0.2$</td>
+        <td>$87.5\pm 0.1$</td>
+        <td>$64.2\pm 0.1$</td>
+        <td>$88.9 \pm 0.0$</td>
+        <td>$56.1\pm 0.1$</td>
+        <td>$89.3 \pm 0.1$</td>
+        <td>$58.7\pm 0.0$</td>
+        <td>$90.1 \pm 0.0$</td>
+        <td>$82.5 \pm 0.1$</td>
+        <td>$95.1\pm 0.0$</td>
+        <td>$62.2 \pm 0.1$</td>
+        <td>$83.4 \pm 0.0$</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2209.07511" rel="noreferrer nofollow" target="_blank">TPT</a></td>
+        <td>$\textbf{63.5}$</td>
+        <td>$87.1$</td>
+        <td>$65.2$</td>
+        <td>$88.1$</td>
+        <td>$\textbf{59.4}$</td>
+        <td>$88.8$</td>
+        <td>$\textbf{61.5}$</td>
+        <td>$90.2$</td>
+        <td>$83.2$</td>
+        <td>$96.0$</td>
+        <td>$\textbf{64.5}$</td>
+        <td>$81.3$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA</td>
+        <td>$62.4$</td>
+        <td>$88.5$</td>
+        <td>$66.0$</td>
+        <td>$90.5$</td>
+        <td>$56.9$</td>
+        <td>$90.0$</td>
+        <td>$60.8$</td>
+        <td>$\textbf{92.3}$</td>
+        <td>$82.5$</td>
+        <td>$95.4$</td>
+        <td>$62.5$</td>
+        <td>$84.0$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN</td>
+        <td>$63.0 \pm 0.0$</td>
+        <td>$88.8 \pm 0.0$</td>
+        <td>$\textbf{67.5} \pm 0.1$</td>
+        <td>$\textbf{90.7} \pm 0.1$</td>
+        <td>$58.8 \pm 0.2$</td>
+        <td>$\textbf{91.0} \pm 0.1$</td>
+        <td>$60.3 \pm 0.2$</td>
+        <td>$91.5 \pm 0.1$</td>
+        <td>$\textbf{83.3} \pm 0.1$</td>
+        <td>$95.4 \pm 0.0$</td>
+        <td>$63.1 \pm 0.1$</td>
+        <td>$84.3 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN *</td>
+        <td>$63.2 \pm 0.0$</td>
+        <td>$\textbf{88.9} \pm 0.0$</td>
+        <td>$67.1 \pm 0.1$</td>
+        <td>$\textbf{90.7} \pm 0.0$</td>
+        <td>$58.1 \pm 0.1$</td>
+        <td>$90.7 \pm 0.0$</td>
+        <td>$\textbf{61.5} \pm 0.1$</td>
+        <td>$92.2 \pm 0.0$</td>
+        <td>$83.1 \pm 0.0$</td>
+        <td>$\textbf{95.5} \pm 0.0$</td>
+        <td>$63.5 \pm 0.1$</td>
+        <td>$\textbf{84.5} \pm 0.0$</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN</td>
+        <td>$61.6 \pm 0.1$</td>
+        <td>$87.7 \pm 0.1$</td>
+        <td>$65.5 \pm 0.2$</td>
+        <td>$89.2 \pm 0.2$</td>
+        <td>$57.9 \pm 0.1$</td>
+        <td>$90.5 \pm 0.1$</td>
+        <td>$57.5 \pm 0.1$</td>
+        <td>$90.5 \pm 0.1$</td>
+        <td>$82.9 \pm 0.1$</td>
+        <td>$94.9 \pm 0.1$</td>
+        <td>$62.7 \pm 0.1$</td>
+        <td>$84.1 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN*</td>
+        <td>$61.7 \pm 0.1$</td>
+        <td>$87.8 \pm 0.0$</td>
+        <td>$65.1 \pm 0.1$</td>
+        <td>$89.4 \pm 0.0$</td>
+        <td>$57.3 \pm 0.0$</td>
+        <td>$90.2 \pm 0.1$</td>
+        <td>$58.6 \pm 0.1$</td>
+        <td>$90.7 \pm 0.0$</td>
+        <td>$82.8 \pm 0.0$</td>
+        <td>$95.1 \pm 0.0$</td>
+        <td>$62.9 \pm 0.1$</td>
+        <td>$84.3 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2202.10401" rel="noreferrer nofollow" target="_blank">TCL</a></td>
+        <td>$20.0 $</td>
+        <td>$42.9$</td>
+        <td>$39.1$</td>
+        <td>$68.2$</td>
+        <td>$28.6$</td>
+        <td>$63.4$</td>
+        <td>$ 2.0$</td>
+        <td>$ 8.7 $</td>
+        <td>$58.8$</td>
+        <td>$80.1$</td>
+        <td>$24.4$</td>
+        <td>$42.6$</td>
+    </tr>
+    <tr>
+        <td>TCL + DN</td>
+        <td>$ \textbf{30.5} \pm 0.2$</td>
+        <td>$\textbf{54.3} \pm 0.2$</td>
+        <td>$\textbf{45.4} \pm 0.1$</td>
+        <td>$\textbf{73.1} \pm  0.1$</td>
+        <td>$\textbf{36.2} \pm 0.2$</td>
+        <td>$\textbf{70.8} \pm 0.3$</td>
+        <td>$\textbf{2.6} \pm 0.1$</td>
+        <td>$\textbf{10.7} \pm 0.1$</td>
+        <td>$\textbf{66.7} \pm 0.1$</td>
+        <td>$\textbf{81.8} \pm 0.1$</td>
+        <td>$\textbf{28.5} \pm 0.1$</td>
+        <td>$\textbf{48.4} \pm 0.2$</td>
+    </tr>
+    <tr>
+        <td>TCL + DN*</td>
+        <td>$ 25.1 \pm 0.1$</td>
+        <td>$48.9\pm 0.2$</td>
+        <td>$42.2 \pm 0.0$</td>
+        <td>$71.1 \pm  0.1$</td>
+        <td>$31.8 \pm 0.1$</td>
+        <td>$66.8 \pm 0.2$</td>
+        <td>$2.4 \pm 0.0$</td>
+        <td>$9.5 \pm 0.1$</td>
+        <td>$63.9 \pm 0.1$</td>
+        <td>$81.1 \pm 0.0$</td>
+        <td>$27.2 \pm 0.1$</td>
+        <td>$45.7 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2107.07651" rel="noreferrer nofollow" target="_blank">ALBEF</a></td>
+        <td>$37.3$</td>
+        <td>$65.8$</td>
+        <td>$38.5$</td>
+        <td>$65.7 $</td>
+        <td>$ 45.6$</td>
+        <td>$81.5$</td>
+        <td>$25.0 $</td>
+        <td>$61.0$</td>
+        <td>$66.0$</td>
+        <td>$86.3$</td>
+        <td>$26.9$</td>
+        <td>$49.1$</td>
+    </tr>
+    <tr>
+        <td>ALBEF + DN</td>
+        <td>$\textbf{39.9} \pm 0.2$</td>
+        <td>$\textbf{68.5} \pm 0.2$</td>
+        <td>$\textbf{50.2} \pm 0.1$</td>
+        <td>$\textbf{77.0} \pm 0.2$</td>
+        <td>$\textbf{46.7} \pm 0.1$</td>
+        <td>$ \textbf{82.4} \pm 0.1$</td>
+        <td>$\textbf{26.0} \pm 0.2$</td>
+        <td>$\textbf{62.0} \pm 0.3$</td>
+        <td>$\textbf{71.5} \pm 0.3$</td>
+        <td>$\textbf{88.9} \pm 0.1$</td>
+        <td>$\textbf{33.1} \pm 0.2$</td>
+        <td>$\textbf{54.4} \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td>ALBEF + DN*</td>
+        <td>$38.7 \pm 0.1$</td>
+        <td>$67.3 \pm 0.0$</td>
+        <td>$44.8 \pm 0.2$</td>
+        <td>$72.0 \pm 0.2$</td>
+        <td>$46.3 \pm 0.1$</td>
+        <td>$ 82.0 \pm 0.0$</td>
+        <td>$\textbf{26.0} \pm 0.1$</td>
+        <td>$61.7 \pm 0.2$</td>
+        <td>$68.9 \pm 0.4$</td>
+        <td>$87.6 \pm 0.2$</td>
+        <td>$29.9 \pm 0.1$</td>
+        <td>$51.9 \pm 0.1$</td>
+    </tr>
+</table>
+
 ### Authors
 
 <div>
@@ -282,123 +523,3 @@ primaryClass={cs.LG}
 }
 
 ```
-
-<!-- Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-````
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-- This is an unordered list following a header.
-- This is an unordered list following a header.
-- This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-| :----------- | :---------------- | :---- |
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
----
-
-### Here is an unordered list:
-
-- Item foo
-- Item bar
-- Item baz
-- Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
-$$
