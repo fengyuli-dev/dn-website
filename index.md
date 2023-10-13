@@ -41,15 +41,15 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 <table>
     <tr>
         <td></td>
-        <td>\multicolumn{6}{c}{MSCOCO (5K test set)}</td>
-        <td>\multicolumn{6}{c}{Flickr30K (1K test set)}</td>
+        <td colspan="6" style="text-align:center;">MSCOCO (5K test set)</td>
+        <td colspan="6" style="text-align:center;">Flickr30K (1K test set)</td>
     </tr>
     <tr>
         <td></td>
-        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
-        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
-        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
-        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
+        <td colspan="3" style="text-align:center;">Image $\rightarrow$ Text</td>
+        <td colspan="3" style="text-align:center;">Text $\rightarrow$ Image</td>
+        <td colspan="3" style="text-align:center;">Image $\rightarrow$ Text</td>
+        <td colspan="3" style="text-align:center;">Text $\rightarrow$ Image
     </tr>
     <tr>
         <td></td>
@@ -67,7 +67,7 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
         <td>R@10</td>
     </tr>
     <tr>
-        <td>CLIP \cite{clip}</td>
+        <td><a href="https://arxiv.org/abs/2103.00020" rel="noreferrer nofollow" target="_blank">CLIP</a></td>
         <td>$52.4$</td>
         <td>$76.0$</td>
         <td>$84.5$</td>
@@ -82,7 +82,7 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
         <td>$92.0$</td>
     </tr>
     <tr>
-        <td>CLIP + TTA \cite{shanmugam2021better}</td>
+        <td>CLIP + <a href="https://arxiv.org/abs/2011.11156" rel="noreferrer nofollow" target="_blank">TTA</a></td>
         <td>$53.9$</td>
         <td>$77.5$</td>
         <td>$85.5$</td>
@@ -128,36 +128,36 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
     </tr>
     <tr>
         <td>CLIP + DN</td>
-        <td>$51.7 \tiny{\pm 0.1}$</td>
-        <td>$75.8 \tiny{\pm 0.1}$</td>
-        <td>$84.0 \tiny{\pm 0.1}$</td>
-        <td>$ 33.4 \tiny{\pm 0.0}$</td>
-        <td>$58.6 \tiny{\pm 0.1}$</td>
-        <td>$69.4 \tiny{\pm 0.1}$</td>
-        <td>$83.3 \tiny{\pm 0.2} $</td>
-        <td>$96.4 \tiny{\pm 0.1}$</td>
-        <td>$98.6 \tiny{\pm 0.1}$</td>
-        <td>$66.2 \tiny{\pm 0.1}$</td>
-        <td>$88.2 \tiny{\pm 0.1}$</td>
-        <td>$93.3 \tiny{\pm 0.1}$</td>
+        <td>$51.7 {\pm 0.1}$</td>
+        <td>$75.8 {\pm 0.1}$</td>
+        <td>$84.0 {\pm 0.1}$</td>
+        <td>$ 33.4 {\pm 0.0}$</td>
+        <td>$58.6 {\pm 0.1}$</td>
+        <td>$69.4 {\pm 0.1}$</td>
+        <td>$83.3 {\pm 0.2} $</td>
+        <td>$96.4 {\pm 0.1}$</td>
+        <td>$98.6 {\pm 0.1}$</td>
+        <td>$66.2 {\pm 0.1}$</td>
+        <td>$88.2 {\pm 0.1}$</td>
+        <td>$93.3 {\pm 0.1}$</td>
     </tr>
     <tr>
         <td>CLIP + DN*</td>
-        <td>$52.9 \tiny{\pm 0.1}$</td>
-        <td>$76.4 \tiny{\pm 0.1}$</td>
-        <td>$84.9 \tiny{\pm 0.1}$</td>
-        <td>$ 32.1 \tiny{\pm 0.1}$</td>
-        <td>$57.4 \tiny{\pm 0.0}$</td>
-        <td>${68.3} \tiny{\pm 0.1}$</td>
-        <td>${83.5} \tiny{\pm 0.1} $</td>
-        <td>$96.2 \tiny{\pm 0.0}$</td>
-        <td>$98.5 \tiny{\pm 0.1}$</td>
-        <td>$64.8 \tiny{\pm 0.2}$</td>
-        <td>$87.5 \tiny{\pm 0.1}$</td>
-        <td>$93.1 \tiny{\pm 0.0}$</td>
+        <td>$52.9 {\pm 0.1}$</td>
+        <td>$76.4 {\pm 0.1}$</td>
+        <td>$84.9 {\pm 0.1}$</td>
+        <td>$ 32.1 {\pm 0.1}$</td>
+        <td>$57.4 {\pm 0.0}$</td>
+        <td>${68.3} {\pm 0.1}$</td>
+        <td>${83.5} {\pm 0.1} $</td>
+        <td>$96.2 {\pm 0.0}$</td>
+        <td>$98.5 {\pm 0.1}$</td>
+        <td>$64.8 {\pm 0.2}$</td>
+        <td>$87.5 {\pm 0.1}$</td>
+        <td>$93.1 {\pm 0.0}$</td>
     </tr>
     <tr>
-        <td>TCL \cite{tcl}</td>
+        <td><a href="https://arxiv.org/abs/2202.10401" rel="noreferrer nofollow" target="_blank">TCL</a></td>
         <td>$57.6$</td>
         <td>$84.3$</td>
         <td>$91.8$</td>
@@ -173,36 +173,36 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
     </tr>
     <tr>
         <td>TCL + DN</td>
-        <td>$\textbf{60.6} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{85.8} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{92.4} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{43.2} \tiny{\pm 0.0}$</td>
-        <td>$\textbf{71.8} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{81.6} \tiny{\pm 0.0}$</td>
-        <td>$77.5 \tiny{\pm 0.5}$</td>
-        <td>$94.1 \tiny{\pm 0.2}$</td>
-        <td>$\textbf{96.9} \tiny{\pm 0.2}$</td>
-        <td>$59.8 \tiny{\pm 0.2}$</td>
-        <td>$84.9 \tiny{\pm 0.1}$</td>
-        <td>$91.1 \tiny{\pm 0.1}$</td>
+        <td>$\textbf{60.6} {\pm 0.1}$</td>
+        <td>$\textbf{85.8} {\pm 0.1}$</td>
+        <td>$\textbf{92.4} {\pm 0.1}$</td>
+        <td>$\textbf{43.2} {\pm 0.0}$</td>
+        <td>$\textbf{71.8} {\pm 0.1}$</td>
+        <td>$\textbf{81.6} {\pm 0.0}$</td>
+        <td>$77.5 {\pm 0.5}$</td>
+        <td>$94.1 {\pm 0.2}$</td>
+        <td>$\textbf{96.9} {\pm 0.2}$</td>
+        <td>$59.8 {\pm 0.2}$</td>
+        <td>$84.9 {\pm 0.1}$</td>
+        <td>$91.1 {\pm 0.1}$</td>
     </tr>
     <tr>
         <td>TCL + DN*</td>
-        <td>$59.5 \tiny{\pm 0.1}$</td>
-        <td>$85.2 \tiny{\pm 0.0}$</td>
-        <td>$92.2 \tiny{\pm 0.1}$</td>
-        <td>$42.7 \tiny{\pm 0.0}$</td>
-        <td>$71.5 \tiny{\pm 0.0}$</td>
-        <td>$81.3 \tiny{\pm 0.0}$</td>
-        <td>$75.5 \tiny{\pm 0.0}$</td>
-        <td>$\textbf{94.4} \tiny{\pm 0.1}$</td>
-        <td>$ 96.9 \tiny{\pm 0.1}$</td>
-        <td>$\textbf{60.0} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{85.1} \tiny{\pm 0.0}$</td>
-        <td>$91.1 \tiny{\pm 0.0}$</td>
+        <td>$59.5 {\pm 0.1}$</td>
+        <td>$85.2 {\pm 0.0}$</td>
+        <td>$92.2 {\pm 0.1}$</td>
+        <td>$42.7 {\pm 0.0}$</td>
+        <td>$71.5 {\pm 0.0}$</td>
+        <td>$81.3 {\pm 0.0}$</td>
+        <td>$75.5 {\pm 0.0}$</td>
+        <td>$\textbf{94.4} {\pm 0.1}$</td>
+        <td>$ 96.9 {\pm 0.1}$</td>
+        <td>$\textbf{60.0} {\pm 0.1}$</td>
+        <td>$\textbf{85.1} {\pm 0.0}$</td>
+        <td>$91.1 {\pm 0.0}$</td>
     </tr>
     <tr>
-        <td>ALBEF \cite{albef}</td>
+        <td><a href="https://arxiv.org/abs/2107.07651" rel="noreferrer nofollow" target="_blank">ALBEF</a></td>
         <td>$62.5$</td>
         <td>$85.9$</td>
         <td>$ 92.2$</td>
@@ -218,33 +218,33 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
     </tr>
     <tr>
         <td>ALBEF + DN</td>
-        <td>$ \textbf{63.0} \tiny{\pm 0.2}$</td>
-        <td>$85.8 \tiny{\pm 0.1}$</td>
-        <td>$92.4 \tiny{\pm 0.1}$</td>
-        <td>$\textbf{44.8} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{72.5} \tiny{\pm 0.0}$</td>
-        <td>$\textbf{82.0} \tiny{\pm 0.0}$</td>
-        <td>$\textbf{80.6} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{96.2} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{98.3} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{64.1} \tiny{\pm 0.0}$</td>
-        <td>$\textbf{87.1} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{92.3} \tiny{\pm 0.1}$</td>
+        <td>$ \textbf{63.0} {\pm 0.2}$</td>
+        <td>$85.8 {\pm 0.1}$</td>
+        <td>$92.4 {\pm 0.1}$</td>
+        <td>$\textbf{44.8} {\pm 0.1}$</td>
+        <td>$\textbf{72.5} {\pm 0.0}$</td>
+        <td>$\textbf{82.0} {\pm 0.0}$</td>
+        <td>$\textbf{80.6} {\pm 0.1}$</td>
+        <td>$\textbf{96.2} {\pm 0.1}$</td>
+        <td>$\textbf{98.3} {\pm 0.1}$</td>
+        <td>$\textbf{64.1} {\pm 0.0}$</td>
+        <td>$\textbf{87.1} {\pm 0.1}$</td>
+        <td>$\textbf{92.3} {\pm 0.1}$</td>
     </tr>
     <tr>
         <td>ALBEF +DN*</td>
-        <td>$ \textbf{63.0} \tiny{\pm 0.1}$</td>
-        <td>$\textbf{86.0} \tiny{\pm 0.0}$</td>
-        <td>$\textbf{92.5} \tiny{\pm 0.1}$</td>
-        <td>$42.8 \tiny{\pm 0.1}$</td>
-        <td>$70.8 \tiny{\pm 0.0}$</td>
-        <td>$80.7 \tiny{\pm 0.0}$</td>
-        <td>$79.2 \tiny{\pm 0.1}$</td>
-        <td>$\textbf{96.2} \tiny{\pm 0.0}$</td>
-        <td>$98.0 \tiny{\pm 0.0}$</td>
-        <td>$62.4 \tiny{\pm 0.1}$</td>
-        <td>$86.1 \tiny{\pm 0.1}$</td>
-        <td>$91.9 \tiny{\pm 0.1}$</td>
+        <td>$ \textbf{63.0} {\pm 0.1}$</td>
+        <td>$\textbf{86.0} {\pm 0.0}$</td>
+        <td>$\textbf{92.5} {\pm 0.1}$</td>
+        <td>$42.8 {\pm 0.1}$</td>
+        <td>$70.8 {\pm 0.0}$</td>
+        <td>$80.7 {\pm 0.0}$</td>
+        <td>$79.2 {\pm 0.1}$</td>
+        <td>$\textbf{96.2} {\pm 0.0}$</td>
+        <td>$98.0 {\pm 0.0}$</td>
+        <td>$62.4 {\pm 0.1}$</td>
+        <td>$86.1 {\pm 0.1}$</td>
+        <td>$91.9 {\pm 0.1}$</td>
     </tr>
 </table>
 
