@@ -42,6 +42,139 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 We first present results on cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting for more CLIP variants. As can be seen from the bolded entries, adding DN improves retrieval accuracy across the board for CLIP, ALBEF, and TCL. Means for DN\* are estimated using 100 random unlabeled validation samples. Average recalls are calculated with 5 random seeds.
 
+#### Image Captioning Metrics
+
+<table>
+    <tr>
+        <td colspan="2"></td>
+        <td>Flickr8k-expert</td>
+        <td>Flickr8k-cf</td>
+        <td>THumb</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td>$\tau_c$</td>
+        <td>$\tau_b$</td>
+        <td>$\tau_c$</td>
+    </tr>
+    <tr>
+        <td rowspan="12">Ref-free</td>
+        <td><a href="https://arxiv.org/abs/2104.08718" rel="noreferrer nofollow" target="_blank">CLIP-ref</a></td>
+        <td>51.4</td>
+        <td>34.3</td>
+        <td>19.9</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA</td>
+        <td>51.9</td>
+        <td>34.7</td>
+        <td>20.7</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN</td>
+        <td>53.6</td>
+        <td>\textbf{35.7}</td>
+        <td>23.7</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN*</td>
+        <td>53.5</td>
+        <td>35.5</td>
+        <td>22.7</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN</td>
+        <td>\textbf{54.3}</td>
+        <td>35.4</td>
+        <td>\textbf{23.5}</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN*</td>
+        <td>53.2</td>
+        <td>35.1</td>
+        <td>22.2</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2202.10401" rel="noreferrer nofollow" target="_blank">TCL</a></td>
+        <td>31.0</td>
+        <td>20.6</td>
+        <td>8.1</td>
+    </tr>
+    <tr>
+        <td>TCL + DN</td>
+        <td>\textbf{42.0}</td>
+        <td>\textbf{26.4}</td>
+        <td>\textbf{14.4}</td>
+    </tr>
+    <tr>
+        <td>TCL + DN*</td>
+        <td>36.0</td>
+        <td>23.3</td>
+        <td>11.1</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2107.07651" rel="noreferrer nofollow" target="_blank">ALBEF</a></td>
+        <td>24.9</td>
+        <td>15.4</td>
+        <td>0.9</td>
+    </tr>
+    <tr>
+        <td>ALBEF + DN</td>
+        <td>\textbf{34.8}</td>
+        <td>\textbf{21.8}</td>
+        <td>\textbf{5.5}</td>
+    </tr>
+    <tr>
+        <td>ALBEF + DN*</td>
+        <td>29.2</td>
+        <td>18.1</td>
+        <td>2.5</td>
+    </tr>
+    <tr>
+        <td rowspan="9">Ref-based</td>
+        <td>BLEU-1</td>
+        <td>32.3</td>
+        <td>17.9</td>
+        <td>11.1</td>
+    </tr>
+    <tr>
+        <td>BLEU-4</td>
+        <td>30.8</td>
+        <td>16.9</td>
+        <td>6.9</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1411.5726" rel="noreferrer nofollow" target="_blank">CIDEr</a></td>
+        <td>43.9</td>
+        <td>24.6</td>
+        <td>13.8</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1908.02265" rel="noreferrer nofollow" target="_blank">ViLBERTScore-F</a></td>
+        <td>50.1</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/2104.08718" rel="noreferrer nofollow" target="_blank">CLIP-ref</a></td>
+        <td>53.0</td>
+        <td>36.4</td>
+        <td>24.7</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN-ref</td>
+        <td>\textbf{55.3}</td>
+        <td>\textbf{37.0}</td>
+        <td>25.8</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN*-ref</td>
+        <td>54.3</td>
+        <td>36.9</td>
+        <td>\textbf{26.2}</td>
+    </tr>
+</table>
+
 ### Authors
 
 <div>
