@@ -42,6 +42,216 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 We first present results on cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting for more CLIP variants. As can be seen from the bolded entries, adding DN improves retrieval accuracy across the board for CLIP, ALBEF, and TCL. Means for DN\* are estimated using 100 random unlabeled validation samples. Average recalls are calculated with 5 random seeds.
 
+<table>
+    <tr>
+        <td></td>
+        <td>\multicolumn{6}{c}{MSCOCO (5K test set)}</td>
+        <td>\multicolumn{6}{c}{Flickr30K (1K test set)}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
+        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
+        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
+        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+    </tr>
+    <tr>
+        <td>CLIP \cite{clip}</td>
+        <td>$52.4$</td>
+        <td>$76.0$</td>
+        <td>$84.5$</td>
+        <td>$ 30.2$</td>
+        <td>$55.1$</td>
+        <td>$66.4$</td>
+        <td>$81.3$</td>
+        <td>$95.0$</td>
+        <td>$98.5$</td>
+        <td>$62.7$</td>
+        <td>$86.0$</td>
+        <td>$92.0$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA \cite{shanmugam2021better}</td>
+        <td>$53.9$</td>
+        <td>$77.5$</td>
+        <td>$85.5$</td>
+        <td>$32.1$</td>
+        <td>$57.5$</td>
+        <td>$68.3$</td>
+        <td>$83.2$</td>
+        <td>$96.8$</td>
+        <td>$98.4$</td>
+        <td>$65.2$</td>
+        <td>$87.9$</td>
+        <td>$92.9$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN</td>
+        <td>$53.6 \pm 0.1$</td>
+        <td>$76.9 \pm 0.1$</td>
+        <td>$84.8 \pm 0.1$</td>
+        <td>$\textbf{34.8} \pm 0.0$</td>
+        <td>$\textbf{60.4} \pm 0.0$</td>
+        <td>$\textbf{70.8} \pm 0.1$</td>
+        <td>$\textbf{85.8} \pm 0.2$</td>
+        <td>$\textbf{97.5} \pm 0.1$</td>
+        <td>$\textbf{99.1} \pm 0.0$</td>
+        <td>$\textbf{68.1} \pm 0.1$</td>
+        <td>$\textbf{89.4} \pm 0.1$</td>
+        <td>$\textbf{94.1} \pm 0.0$</td>
+    </tr>
+    <tr>
+        <td>CLIP + TTA + DN*</td>
+        <td>$\textbf{54.7} \pm 0.1$</td>
+        <td>$\textbf{77.8} \pm 0.1$</td>
+        <td>$\textbf{85.6} \pm 0.1$</td>
+        <td>$33.8 \pm 0.0$</td>
+        <td>$59.4 \pm 0.0$</td>
+        <td>$70.1 \pm 0.0$</td>
+        <td>$\textbf{85.8} \pm 0.1 $</td>
+        <td>$\textbf{97.5} \pm 0.1$</td>
+        <td>$98.8 \pm 0.1$</td>
+        <td>$67.6 \pm 0.0$</td>
+        <td>$89.1 \pm 0.0$</td>
+        <td>$93.9 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN</td>
+        <td>$51.7 \tiny{\pm 0.1}$</td>
+        <td>$75.8 \tiny{\pm 0.1}$</td>
+        <td>$84.0 \tiny{\pm 0.1}$</td>
+        <td>$ 33.4 \tiny{\pm 0.0}$</td>
+        <td>$58.6 \tiny{\pm 0.1}$</td>
+        <td>$69.4 \tiny{\pm 0.1}$</td>
+        <td>$83.3 \tiny{\pm 0.2} $</td>
+        <td>$96.4 \tiny{\pm 0.1}$</td>
+        <td>$98.6 \tiny{\pm 0.1}$</td>
+        <td>$66.2 \tiny{\pm 0.1}$</td>
+        <td>$88.2 \tiny{\pm 0.1}$</td>
+        <td>$93.3 \tiny{\pm 0.1}$</td>
+    </tr>
+    <tr>
+        <td>CLIP + DN*</td>
+        <td>$52.9 \tiny{\pm 0.1}$</td>
+        <td>$76.4 \tiny{\pm 0.1}$</td>
+        <td>$84.9 \tiny{\pm 0.1}$</td>
+        <td>$ 32.1 \tiny{\pm 0.1}$</td>
+        <td>$57.4 \tiny{\pm 0.0}$</td>
+        <td>${68.3} \tiny{\pm 0.1}$</td>
+        <td>${83.5} \tiny{\pm 0.1} $</td>
+        <td>$96.2 \tiny{\pm 0.0}$</td>
+        <td>$98.5 \tiny{\pm 0.1}$</td>
+        <td>$64.8 \tiny{\pm 0.2}$</td>
+        <td>$87.5 \tiny{\pm 0.1}$</td>
+        <td>$93.1 \tiny{\pm 0.0}$</td>
+    </tr>
+    <tr>
+        <td>TCL \cite{tcl}</td>
+        <td>$57.6$</td>
+        <td>$84.3$</td>
+        <td>$91.8$</td>
+        <td>$41.8$</td>
+        <td>$70.6$</td>
+        <td>$ 80.6$</td>
+        <td>$ 73.8$</td>
+        <td>$93.3$</td>
+        <td>$ 96.9$</td>
+        <td>$59.1$</td>
+        <td>$84.6$</td>
+        <td>$91.1$</td>
+    </tr>
+    <tr>
+        <td>TCL + DN</td>
+        <td>$\textbf{60.6} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{85.8} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{92.4} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{43.2} \tiny{\pm 0.0}$</td>
+        <td>$\textbf{71.8} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{81.6} \tiny{\pm 0.0}$</td>
+        <td>$77.5 \tiny{\pm 0.5}$</td>
+        <td>$94.1 \tiny{\pm 0.2}$</td>
+        <td>$\textbf{96.9} \tiny{\pm 0.2}$</td>
+        <td>$59.8 \tiny{\pm 0.2}$</td>
+        <td>$84.9 \tiny{\pm 0.1}$</td>
+        <td>$91.1 \tiny{\pm 0.1}$</td>
+    </tr>
+    <tr>
+        <td>TCL + DN*</td>
+        <td>$59.5 \tiny{\pm 0.1}$</td>
+        <td>$85.2 \tiny{\pm 0.0}$</td>
+        <td>$92.2 \tiny{\pm 0.1}$</td>
+        <td>$42.7 \tiny{\pm 0.0}$</td>
+        <td>$71.5 \tiny{\pm 0.0}$</td>
+        <td>$81.3 \tiny{\pm 0.0}$</td>
+        <td>$75.5 \tiny{\pm 0.0}$</td>
+        <td>$\textbf{94.4} \tiny{\pm 0.1}$</td>
+        <td>$ 96.9 \tiny{\pm 0.1}$</td>
+        <td>$\textbf{60.0} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{85.1} \tiny{\pm 0.0}$</td>
+        <td>$91.1 \tiny{\pm 0.0}$</td>
+    </tr>
+    <tr>
+        <td>ALBEF \cite{albef}</td>
+        <td>$62.5$</td>
+        <td>$85.9$</td>
+        <td>$ 92.2$</td>
+        <td>$40.2 $</td>
+        <td>$68.4$</td>
+        <td>$78.9$</td>
+        <td>$78.2$</td>
+        <td>$95.5$</td>
+        <td>$97.9$</td>
+        <td>$59.9$</td>
+        <td>$84.8$</td>
+        <td>$90.6$</td>
+    </tr>
+    <tr>
+        <td>ALBEF + DN</td>
+        <td>$ \textbf{63.0} \tiny{\pm 0.2}$</td>
+        <td>$85.8 \tiny{\pm 0.1}$</td>
+        <td>$92.4 \tiny{\pm 0.1}$</td>
+        <td>$\textbf{44.8} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{72.5} \tiny{\pm 0.0}$</td>
+        <td>$\textbf{82.0} \tiny{\pm 0.0}$</td>
+        <td>$\textbf{80.6} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{96.2} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{98.3} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{64.1} \tiny{\pm 0.0}$</td>
+        <td>$\textbf{87.1} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{92.3} \tiny{\pm 0.1}$</td>
+    </tr>
+    <tr>
+        <td>ALBEF +DN*</td>
+        <td>$ \textbf{63.0} \tiny{\pm 0.1}$</td>
+        <td>$\textbf{86.0} \tiny{\pm 0.0}$</td>
+        <td>$\textbf{92.5} \tiny{\pm 0.1}$</td>
+        <td>$42.8 \tiny{\pm 0.1}$</td>
+        <td>$70.8 \tiny{\pm 0.0}$</td>
+        <td>$80.7 \tiny{\pm 0.0}$</td>
+        <td>$79.2 \tiny{\pm 0.1}$</td>
+        <td>$\textbf{96.2} \tiny{\pm 0.0}$</td>
+        <td>$98.0 \tiny{\pm 0.0}$</td>
+        <td>$62.4 \tiny{\pm 0.1}$</td>
+        <td>$86.1 \tiny{\pm 0.1}$</td>
+        <td>$91.9 \tiny{\pm 0.1}$</td>
+    </tr>
+</table>
+
 #### Zero-shot Classification
 
 Next, we present zero-shot classification performance on ImageNet1K, Cifar100, SUN397, Stanford Cars, Caltech 101, and Flowers 102. Means for DN are estimated using 100 random unlabeled validation samples. Average accuracies and standard deviations are calculated with 5 random seeds.
