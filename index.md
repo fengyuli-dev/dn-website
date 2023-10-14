@@ -15,14 +15,10 @@ layout: default
     td {
         text-align: center;
     }
-    
-    td[style*="textbf"] {
-        background-color: #f2f2f2;
-    }
 
     a:hover {
         text-decoration: underline;
-    }k
+    }
 </style>
 
 ### TL;DR
@@ -435,7 +431,7 @@ Finally, we present zero-shot classification performance on ImageNet1K, Cifar100
         <td style="text-align:center;">$91.4$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">% CLIP(B16) + TTA + DN *</td>
+        <td style="text-align:center;">CLIP(B16) + TTA + DN *</td>
         <td style="text-align:center;">$\textbf{67.8}$</td>
         <td style="text-align:center;">$\textbf{92.0}$</td>
         <td style="text-align:center;">$\textbf{71.1}$</td>
