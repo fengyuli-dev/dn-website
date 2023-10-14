@@ -42,7 +42,250 @@ Our paper aims to rectify such misalignment, and we show that this boosts perfor
 
 We first present results on cross-modal retrieval performance on MSCOCO and Flickr30K in the zero-shot setting for more CLIP variants. As can be seen from the bolded entries, adding DN improves retrieval accuracy across the board for CLIP, ALBEF, and TCL. Means for DN\* are estimated using 100 random unlabeled validation samples. Average recalls are calculated with 5 random seeds.
 
+#### Zero-shot Classification
+
+Next, we present zero-shot classification performance on ImageNet1K, Cifar100, SUN397, Stanford Cars, Caltech 101, and Flowers 102. Means for DN are estimated using 100 random unlabeled validation samples. Average accuracies and standard deviations are calculated with 5 random seeds.
+
+<table>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td colspan="2" style="text-align:center;">{ImageNet1K}</td>
+        <td colspan="2" style="text-align:center;">{Cifar100}</td>
+        <td colspan="2" style="text-align:center;">{SUN397}</td>
+        <td colspan="2" style="text-align:center;">{Stanford Cars}</td>
+        <td colspan="2" style="text-align:center;">{Caltech 101}</td>
+        <td colspan="2" style="text-align:center;">{Flowers 102}</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+        <td style="text-align:center;">Acc@1</td>
+        <td style="text-align:center;">Acc@5</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2103.00020" rel="noreferrer nofollow" target="_blank">CLIP</a></td>
+        <td style="text-align:center;">$61.0$</td>
+        <td style="text-align:center;">$87.4$</td>
+        <td style="text-align:center;">$63.9$</td>
+        <td style="text-align:center;">$88.7$</td>
+        <td style="text-align:center;">$56.1$</td>
+        <td style="text-align:center;">$89.4$</td>
+        <td style="text-align:center;">${58.6}$</td>
+        <td style="text-align:center;">${90.9}$</td>
+        <td style="text-align:center;">$82.3$</td>
+        <td style="text-align:center;">$95.0$</td>
+        <td style="text-align:center;">$62.1$</td>
+        <td style="text-align:center;">$83.8$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.14169" rel="noreferrer nofollow" target="_blank">CALIP</a></td>
+        <td style="text-align:center;">$61.2\pm 0.2$</td>
+        <td style="text-align:center;">$87.5\pm 0.1$</td>
+        <td style="text-align:center;">$64.2\pm 0.1$</td>
+        <td style="text-align:center;">$88.9 \pm 0.0$</td>
+        <td style="text-align:center;">$56.1\pm 0.1$</td>
+        <td style="text-align:center;">$89.3 \pm 0.1$</td>
+        <td style="text-align:center;">$58.7\pm 0.0$</td>
+        <td style="text-align:center;">$90.1 \pm 0.0$</td>
+        <td style="text-align:center;">$82.5 \pm 0.1$</td>
+        <td style="text-align:center;">$95.1\pm 0.0$</td>
+        <td style="text-align:center;">$62.2 \pm 0.1$</td>
+        <td style="text-align:center;">$83.4 \pm 0.0$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.07511" rel="noreferrer nofollow" target="_blank">TPT</a></td>
+        <td style="text-align:center;">$\textbf{63.5}$</td>
+        <td style="text-align:center;">$87.1$</td>
+        <td style="text-align:center;">$65.2$</td>
+        <td style="text-align:center;">$88.1$</td>
+        <td style="text-align:center;">$\textbf{59.4}$</td>
+        <td style="text-align:center;">$88.8$</td>
+        <td style="text-align:center;">$\textbf{61.5}$</td>
+        <td style="text-align:center;">$90.2$</td>
+        <td style="text-align:center;">$83.2$</td>
+        <td style="text-align:center;">$96.0$</td>
+        <td style="text-align:center;">$\textbf{64.5}$</td>
+        <td style="text-align:center;">$81.3$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">CLIP + TTA</td>
+        <td style="text-align:center;">$62.4$</td>
+        <td style="text-align:center;">$88.5$</td>
+        <td style="text-align:center;">$66.0$</td>
+        <td style="text-align:center;">$90.5$</td>
+        <td style="text-align:center;">$56.9$</td>
+        <td style="text-align:center;">$90.0$</td>
+        <td style="text-align:center;">$60.8$</td>
+        <td style="text-align:center;">$\textbf{92.3}$</td>
+        <td style="text-align:center;">$82.5$</td>
+        <td style="text-align:center;">$95.4$</td>
+        <td style="text-align:center;">$62.5$</td>
+        <td style="text-align:center;">$84.0$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">CLIP + TTA + DN</td>
+        <td style="text-align:center;">$63.0 \pm 0.0$</td>
+        <td style="text-align:center;">$88.8 \pm 0.0$</td>
+        <td style="text-align:center;">$\textbf{67.5} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{90.7} \pm 0.1$</td>
+        <td style="text-align:center;">$58.8 \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{91.0} \pm 0.1$</td>
+        <td style="text-align:center;">$60.3 \pm 0.2$</td>
+        <td style="text-align:center;">$91.5 \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{83.3} \pm 0.1$</td>
+        <td style="text-align:center;">$95.4 \pm 0.0$</td>
+        <td style="text-align:center;">$63.1 \pm 0.1$</td>
+        <td style="text-align:center;">$84.3 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">CLIP + TTA + DN *</td>
+        <td style="text-align:center;">$63.2 \pm 0.0$</td>
+        <td style="text-align:center;">$\textbf{88.9} \pm 0.0$</td>
+        <td style="text-align:center;">$67.1 \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{90.7} \pm 0.0$</td>
+        <td style="text-align:center;">$58.1 \pm 0.1$</td>
+        <td style="text-align:center;">$90.7 \pm 0.0$</td>
+        <td style="text-align:center;">$\textbf{61.5} \pm 0.1$</td>
+        <td style="text-align:center;">$92.2 \pm 0.0$</td>
+        <td style="text-align:center;">$83.1 \pm 0.0$</td>
+        <td style="text-align:center;">$\textbf{95.5} \pm 0.0$</td>
+        <td style="text-align:center;">$63.5 \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{84.5} \pm 0.0$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">CLIP + DN</td>
+        <td style="text-align:center;">$61.6 \pm 0.1$</td>
+        <td style="text-align:center;">$87.7 \pm 0.1$</td>
+        <td style="text-align:center;">$65.5 \pm 0.2$</td>
+        <td style="text-align:center;">$89.2 \pm 0.2$</td>
+        <td style="text-align:center;">$57.9 \pm 0.1$</td>
+        <td style="text-align:center;">$90.5 \pm 0.1$</td>
+        <td style="text-align:center;">$57.5 \pm 0.1$</td>
+        <td style="text-align:center;">$90.5 \pm 0.1$</td>
+        <td style="text-align:center;">$82.9 \pm 0.1$</td>
+        <td style="text-align:center;">$94.9 \pm 0.1$</td>
+        <td style="text-align:center;">$62.7 \pm 0.1$</td>
+        <td style="text-align:center;">$84.1 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">CLIP + DN*</td>
+        <td style="text-align:center;">$61.7 \pm 0.1$</td>
+        <td style="text-align:center;">$87.8 \pm 0.0$</td>
+        <td style="text-align:center;">$65.1 \pm 0.1$</td>
+        <td style="text-align:center;">$89.4 \pm 0.0$</td>
+        <td style="text-align:center;">$57.3 \pm 0.0$</td>
+        <td style="text-align:center;">$90.2 \pm 0.1$</td>
+        <td style="text-align:center;">$58.6 \pm 0.1$</td>
+        <td style="text-align:center;">$90.7 \pm 0.0$</td>
+        <td style="text-align:center;">$82.8 \pm 0.0$</td>
+        <td style="text-align:center;">$95.1 \pm 0.0$</td>
+        <td style="text-align:center;">$62.9 \pm 0.1$</td>
+        <td style="text-align:center;">$84.3 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2202.10401" rel="noreferrer nofollow" target="_blank">TCL</a></td>
+        <td style="text-align:center;">$20.0 $</td>
+        <td style="text-align:center;">$42.9$</td>
+        <td style="text-align:center;">$39.1$</td>
+        <td style="text-align:center;">$68.2$</td>
+        <td style="text-align:center;">$28.6$</td>
+        <td style="text-align:center;">$63.4$</td>
+        <td style="text-align:center;">$ 2.0$</td>
+        <td style="text-align:center;">$ 8.7 $</td>
+        <td style="text-align:center;">$58.8$</td>
+        <td style="text-align:center;">$80.1$</td>
+        <td style="text-align:center;">$24.4$</td>
+        <td style="text-align:center;">$42.6$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">TCL + DN</td>
+        <td style="text-align:center;">$\textbf{30.5} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{54.3} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{45.4} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{73.1} \pm  0.1$</td>
+        <td style="text-align:center;">$\textbf{36.2} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{70.8} \pm 0.3$</td>
+        <td style="text-align:center;">$\textbf{2.6} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{10.7} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{66.7} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{81.8} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{28.5} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{48.4} \pm 0.2$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">TCL + DN*</td>
+        <td style="text-align:center;">$ 25.1 \pm 0.1$</td>
+        <td style="text-align:center;">$48.9\pm 0.2$</td>
+        <td style="text-align:center;">$42.2 \pm 0.0$</td>
+        <td style="text-align:center;">$71.1 \pm  0.1$</td>
+        <td style="text-align:center;">$31.8 \pm 0.1$</td>
+        <td style="text-align:center;">$66.8 \pm 0.2$</td>
+        <td style="text-align:center;">$2.4 \pm 0.0$</td>
+        <td style="text-align:center;">$9.5 \pm 0.1$</td>
+        <td style="text-align:center;">$63.9 \pm 0.1$</td>
+        <td style="text-align:center;">$81.1 \pm 0.0$</td>
+        <td style="text-align:center;">$27.2 \pm 0.1$</td>
+        <td style="text-align:center;">$45.7 \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2107.07651" rel="noreferrer nofollow" target="_blank">ALBEF</a></td>
+        <td style="text-align:center;">$37.3$</td>
+        <td style="text-align:center;">$65.8$</td>
+        <td style="text-align:center;">$38.5$</td>
+        <td style="text-align:center;">$65.7 $</td>
+        <td style="text-align:center;">$ 45.6$</td>
+        <td style="text-align:center;">$81.5$</td>
+        <td style="text-align:center;">$25.0 $</td>
+        <td style="text-align:center;">$61.0$</td>
+        <td style="text-align:center;">$66.0$</td>
+        <td style="text-align:center;">$86.3$</td>
+        <td style="text-align:center;">$26.9$</td>
+        <td style="text-align:center;">$49.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">ALBEF + DN</td>
+        <td style="text-align:center;">$\textbf{39.9} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{68.5} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{50.2} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{77.0} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{46.7} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{82.4} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{26.0} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{62.0} \pm 0.3$</td>
+        <td style="text-align:center;">$\textbf{71.5} \pm 0.3$</td>
+        <td style="text-align:center;">$\textbf{88.9} \pm 0.1$</td>
+        <td style="text-align:center;">$\textbf{33.1} \pm 0.2$</td>
+        <td style="text-align:center;">$\textbf{54.4} \pm 0.1$</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">ALBEF + DN*</td>
+        <td style="text-align:center;">$38.7 \pm 0.1$</td>
+        <td style="text-align:center;">$67.3 \pm 0.0$</td>
+        <td style="text-align:center;">$44.8 \pm 0.2$</td>
+        <td style="text-align:center;">$72.0 \pm 0.2$</td>
+        <td style="text-align:center;">$46.3 \pm 0.1$</td>
+        <td style="text-align:center;">$ 82.0 \pm 0.0$</td>
+        <td style="text-align:center;">$\textbf{26.0} \pm 0.1$</td>
+        <td style="text-align:center;">$61.7 \pm 0.2$</td>
+        <td style="text-align:center;">$68.9 \pm 0.4$</td>
+        <td style="text-align:center;">$87.6 \pm 0.2$</td>
+        <td style="text-align:center;">$29.9 \pm 0.1$</td>
+        <td style="text-align:center;">$51.9 \pm 0.1$</td>
+    </tr>
+</table>
+
 #### Image Captioning Metrics
+
+We see that on image captioning, adding DN improves upon existing baselines on Flicker8k-Expert, Flickr8k-CF, and THumb datasets.
 
 <table>
     <tr>
@@ -172,6 +415,130 @@ We first present results on cross-modal retrieval performance on MSCOCO and Flic
         <td>54.3</td>
         <td>36.9</td>
         <td>\textbf{26.2}</td>
+    </tr>
+</table>
+
+#### Cross-Modal Retrieval
+
+Below is cross-modal retrieval performance on MSCOCO and Flickr30k in the zero-shot setting against different CLIP variants.
+
+<table>
+    <tr>
+        <td></td>
+        <td>\multicolumn{6}{c}{MSCOCO (5K test set)}</td>
+        <td>\multicolumn{6}{c}{Flickr30K (1K test set)}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
+        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
+        <td>\multicolumn{3}{c}{Image $\rightarrow$ Text}</td>
+        <td>\multicolumn{3}{c}{Text $\rightarrow$ Image}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+        <td>R@1</td>
+        <td>R@5</td>
+        <td>R@10</td>
+    </tr>
+    <tr>
+        <td>CLIP(B16) + TTA</td>
+        <td>$53.6$</td>
+        <td>$77.5$</td>
+        <td>$85.1$</td>
+        <td>$33.8$</td>
+        <td>$58.7$</td>
+        <td>$69.1$</td>
+        <td>$85.4$</td>
+        <td>$97.9$</td>
+        <td>$99.1$</td>
+        <td>$66.6$</td>
+        <td>$89.0$</td>
+        <td>$93.7$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B16) + TTA + DN*</td>
+        <td>$\textbf{54.6}$</td>
+        <td>$\textbf{78.5}$</td>
+        <td>$\textbf{86.1}$</td>
+        <td>$\textbf{35.7}$</td>
+        <td>$\textbf{60.7}$</td>
+        <td>$\textbf{70.8}$</td>
+        <td>$\textbf{87.3}$</td>
+        <td>$\textbf{98.0}$</td>
+        <td>$\textbf{99.6}$</td>
+        <td>$\textbf{69.3}$</td>
+        <td>$\textbf{90.2}$</td>
+        <td>$\textbf{94.6}$</td>
+    </tr>
+    <tr>
+        <td>CLIP(L14) + TTA</td>
+        <td>$57.7$</td>
+        <td>$80.1$</td>
+        <td>$87.8$</td>
+        <td>$36.8$</td>
+        <td>$61.3$</td>
+        <td>$71.2$</td>
+        <td>$88.4$</td>
+        <td>$\textbf{98.9}$</td>
+        <td>$\textbf{99.9}$</td>
+        <td>$69.9$</td>
+        <td>$90.6$</td>
+        <td>$94.8$</td>
+    </tr>
+    <tr>
+        <td>CLIP(L14) + TTA + DN*</td>
+        <td>$\textbf{58.8}$</td>
+        <td>$\textbf{81.3}$</td>
+        <td>$\textbf{88.4}$</td>
+        <td>$\textbf{38.6}$</td>
+        <td>$\textbf{63.1}$</td>
+        <td>$\textbf{72.9}$</td>
+        <td>$\textbf{89.3}$</td>
+        <td>$98.8$</td>
+        <td>$99.8$</td>
+        <td>$\textbf{72.1}$</td>
+        <td>$\textbf{91.7}$</td>
+        <td>$\textbf{95.5}$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B32-Laion) + TTA</td>
+        <td>$58.5$</td>
+        <td>$80.9$</td>
+        <td>$88.1$</td>
+        <td>$40.0$</td>
+        <td>$65.8$</td>
+        <td>$76.0$</td>
+        <td>$85.8$</td>
+        <td>$96.7$</td>
+        <td>$98.9$</td>
+        <td>$71.1$</td>
+        <td>$91.4$</td>
+        <td>$\textbf{94.8}$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B32-Laion) + TTA + DN*</td>
+        <td>$\textbf{60.7}$</td>
+        <td>$\textbf{82.3}$</td>
+        <td>$\textbf{88.9}$</td>
+        <td>$\textbf{40.8}$</td>
+        <td>$\textbf{66.5}$</td>
+        <td>$\textbf{76.4}$</td>
+        <td>$\textbf{86.6}$</td>
+        <td>$\textbf{97.1}$</td>
+        <td>$98.9$</td>
+        <td>$\textbf{71.7}$</td>
+        <td>$\textbf{91.6}$</td>
+        <td>$94.7$</td>
     </tr>
 </table>
 
