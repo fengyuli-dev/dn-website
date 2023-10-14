@@ -759,12 +759,12 @@ Finally, we present zero-shot classification performance on ImageNet1K, Cifar100
 <table>
     <tr>
         <td style="text-align:center;"></td>
-        <td style="text-align:center;">\multicolumn{2}{c}{ImageNet1K}</td>
-        <td style="text-align:center;">\multicolumn{2}{c}{Cifar100}</td>
-        <td style="text-align:center;">\multicolumn{2}{c}{SUN397}</td>
-        <td style="text-align:center;">\multicolumn{2}{c}{Stanford Cars}</td>
-        <td style="text-align:center;">\multicolumn{2}{c}{Caltech 101}</td>
-        <td style="text-align:center;">\multicolumn{2}{c}{Flowers 102}</td>
+        <td colspan="2" style="text-align:center;">ImageNet1K</td>
+        <td colspan="2" style="text-align:center;">Cifar100</td>
+        <td colspan="2" style="text-align:center;">SUN397</td>
+        <td colspan="2" style="text-align:center;">Stanford Cars</td>
+        <td colspan="2" style="text-align:center;">Caltech 101</td>
+        <td colspan="2" style="text-align:center;">Flowers 102</td>
     </tr>
     <tr>
         <td style="text-align:center;"></td>
