@@ -542,6 +542,142 @@ Below is cross-modal retrieval performance on MSCOCO and Flickr30k in the zero-s
     </tr>
 </table>
 
+#### Zero-shot Classification
+
+Finally, we present zero-shot classification performance on ImageNet1K, Cifar100, SUN397, Stanford Cars, Caltech 101, and Flowers 102.
+
+<table>
+    <tr>
+        <td></td>
+        <td>\multicolumn{2}{c}{ImageNet1K}</td>
+        <td>\multicolumn{2}{c}{Cifar100}</td>
+        <td>\multicolumn{2}{c}{SUN397}</td>
+        <td>\multicolumn{2}{c}{Stanford Cars}</td>
+        <td>\multicolumn{2}{c}{Caltech 101}</td>
+        <td>\multicolumn{2}{c}{Flowers 102}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+        <td>Acc@1</td>
+        <td>Acc@5</td>
+    </tr>
+    <tr>
+        <td>CLIP(B16) + TTA</td>
+        <td>$67.1$</td>
+        <td>$91.5$</td>
+        <td>$67.7$</td>
+        <td>$90.1$</td>
+        <td>$60.0$</td>
+        <td>$91.4$</td>
+        <td>$63.3$</td>
+        <td>$93.1$</td>
+        <td>$84.5$</td>
+        <td>$\textbf{96.7}$</td>
+        <td>$69.8$</td>
+        <td>$84.8$</td>
+    </tr>
+    <tr>
+        <td>% CLIP(B16) + TTA + DN *</td>
+        <td>$\textbf{67.8}$</td>
+        <td>$\textbf{92.0}$</td>
+        <td>$\textbf{71.1}$</td>
+        <td>$\textbf{92.2}$</td>
+        <td>$\textbf{61.9}$</td>
+        <td>$\textbf{92.4}$</td>
+        <td>$\textbf{64.6}$</td>
+        <td>$ \textbf{93.9}$</td>
+        <td>$\textbf{84.9}$</td>
+        <td>$\textbf{96.7}$</td>
+        <td>$69.8$</td>
+        <td>$84.8$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B16) + TTA + DN *</td>
+        <td>$\textbf{67.8}$</td>
+        <td>$\textbf{92.0}$</td>
+        <td>$\textbf{71.1}$</td>
+        <td>$\textbf{92.2}$</td>
+        <td>$\textbf{61.9}$</td>
+        <td>$\textbf{92.4}$</td>
+        <td>$\textbf{64.6}$</td>
+        <td>$\textbf{93.9}$</td>
+        <td>$\textbf{84.9}$</td>
+        <td>$96.6$</td>
+        <td>$\textbf{70.0}$</td>
+        <td>$\textbf{85.0}$</td>
+    </tr>
+    <tr>
+        <td>CLIP(L14) + TTA</td>
+        <td>$73.1$</td>
+        <td>$93.4$</td>
+        <td>$77.6$</td>
+        <td>$94.0$</td>
+        <td>$62.1$</td>
+        <td>$92.5$</td>
+        <td>$76.3$</td>
+        <td>$97.7$</td>
+        <td>$86.0$</td>
+        <td>$97.3$</td>
+        <td>$72.8$</td>
+        <td>$89.1$</td>
+    </tr>
+    <tr>
+        <td>CLIP(L14) + TTA + DN *</td>
+        <td>$\textbf{74.2}$</td>
+        <td>$\textbf{94.1}$</td>
+        <td>$\textbf{80.4}$</td>
+        <td>$\textbf{95.4}$</td>
+        <td>$\textbf{63.8}$</td>
+        <td>$\textbf{93.3}$</td>
+        <td>$\textbf{77.2}$</td>
+        <td>$\textbf{97.8}$</td>
+        <td>$\textbf{86.2}$</td>
+        <td>$97.1$</td>
+        <td>$\textbf{74.0}$</td>
+        <td>$89.1$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B32-Laion) + TTA</td>
+        <td>$66.9$</td>
+        <td>$89.4$</td>
+        <td>$75.7$</td>
+        <td>$94.0$</td>
+        <td>$63.9$</td>
+        <td>$93.5$</td>
+        <td>$87.1$</td>
+        <td>$\textbf{99.2}$</td>
+        <td>$\textbf{87.3}$</td>
+        <td>$\textbf{97.7}$</td>
+        <td>$70.3$</td>
+        <td>$\textbf{86.4}$</td>
+    </tr>
+    <tr>
+        <td>CLIP(B32-Laion) + TTA + DN *</td>
+        <td>$\textbf{67.2}$</td>
+        <td>$\textbf{90.3}$</td>
+        <td>$\textbf{76.2}$</td>
+        <td>$\textbf{94.3}$</td>
+        <td>$\textbf{64.3}$</td>
+        <td>$\textbf{93.7}$</td>
+        <td>$87.1$</td>
+        <td>$99.1$</td>
+        <td>$86.8$</td>
+        <td>$97.2$</td>
+        <td>$\textbf{71.1}$</td>
+        <td>$85.8$</td>
+    </tr>
+</table>
+
 ### Authors
 
 <div>
