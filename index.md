@@ -47,6 +47,32 @@ The InfoNCE loss considers negative samples from the data distribution per posit
 
 Our paper aims to rectify such misalignment, and we show that this boosts performance consistently across a variety of downstream tasks. However, naively applying InfoNCE loss for downstream tasks requires iterating over all negative samples for every test sample, which is not a tractable operation. Instead, we found that a first-order approximation of the InfoNCE loss, consisting of simply subtracting the distribution mean in the representation space before taking the dot product, is able to achieve a similar effect. We call this proposed approach Distribution Normalization (DN) &mdash; DN is very easy to implement and does not require any retraining, fine-tuning or labeled data.
 
+While a more thorough proof is provided in our paper, we will briefly touch on the core idea here. In our analysis, we let $\mathcal{D}_S$ represent the training distribution and $\mathcal{D}_T$ represent the test distribution, $x_0, y_0$ represent an image and text pair, $\phi$ and $\psi$ represent image and text encoders respectively, and $\tau$ represent a temperature hyperparameter used in InfoNCE loss while training. Then, we observe a zero-order approximation of the InfoNCE loss can be expressed as
+
+$$
+    \mathcal{L}_{NCE}^{(0)}(\mathcal{D}_T) = 2n \cdot \mathbb{E}_{x_0, y_0 \sim \mathcal{D}_T} \left[e^{-\phi(x_0)^\intercal \psi(y_0)/\tau} \right],
+$$
+
+such that the downstream similarity score is computed as
+
+$$
+S_{(0)}(x_0, y_0) = \phi(x_0)^\top \psi(y_0).
+$$
+
+However, if we can estimate the mean of the unlabeled distribution $\mu_x$ and $\mu_y$ for $\phi(x_1)$ and $\psi(y_1)$, we can perform a first-order approximation of the distribution with $\widehat{P}(\phi(x_1)) = \mathbb{I}\{\phi(x_1) = \mu_x\}$ and $\widehat{P}(\psi(y_1)) = \mathbb{I}\{\psi(y_1) = \mu_y\}$, so that $\widehat{P}(\phi(x_1)), \widehat{P}(\psi(y_1))$ matches the true distribution in terms of the first-order moment. We are thus left with
+
+$$
+    \mathcal{L}_{NCE}^{(1)}(\mathcal{D}_T) = 2n \cdot \mathbb{E}_{x_0, y_0 \sim \mathcal{D}_T} \left[e^{\phi(x_0)^\intercal (\mu_y - \psi(y_0))/\tau} + e^{(\mu_x - \phi(x_0))^\intercal \psi(y_0)/\tau} \right].
+$$
+
+We show that this can be nicely represented as geometric mean, such that using monotonicity of exponentiation, we get a more accurate similarity score
+
+$$
+S_{(1)}(x_0, y_0) = (\phi(x_0) - \frac{1}{2}\mu_x)^\intercal (\psi(y_0) - \frac{1}{2}\mu_y).
+$$
+
+This translates directly to out implementation of DN, in which subtract off the mean of a test-time batch of image and text embeddings from each image and text embedding of the test set.
+
 ### Results
 
 We present a representative subsection of our results. For the full list, please see our paper!
