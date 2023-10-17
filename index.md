@@ -14,6 +14,7 @@ layout: default
 <style>
     td {
         text-align: center;
+        font-size: 11pt;
     }
 
     a:hover {
@@ -38,11 +39,11 @@ One of the most representative approaches proposed recently known as [CLIP](http
 
 To this end, we propose Distribution Normalization (DN), where we approximate the mean representation of a batch of test samples and use such a mean to represent what would be analogous to negative samples in the InfoNCE loss. DN requires no retraining or fine-tuning and can be effortlessly applied during inference. Extensive experiments on a wide variety of downstream tasks exhibit a clear advantage of DN over the dot product on top of other existing test-time augmentation methods.
 
-### Background
+### Motivation
 
 The InfoNCE loss considers negative samples from the data distribution per positive sample and has been shown to be very effective for cross-modal representation learning. In contrast, during test-time, the similarity is often measured using the dot product between the image and the text representations, which does not utilize any information with regard to the data distribution.
 
-### Key Insight
+### Methodology
 
 Our paper aims to rectify such misalignment, and we show that this boosts performance consistently across a variety of downstream tasks. However, naively applying InfoNCE loss for downstream tasks requires iterating over all negative samples for every test sample, which is not a tractable operation. Instead, we found that a first-order approximation of the InfoNCE loss, consisting of simply subtracting the distribution mean in the representation space before taking the dot product, is able to achieve a similar effect. We call this proposed approach Distribution Normalization (DN) &mdash; DN is very easy to implement and does not require any retraining, fine-tuning or labeled data.
 
@@ -83,50 +84,24 @@ We first present results on cross-modal retrieval performance on MSCOCO in the z
         <td style="text-align:center;">$66.4$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">CLIP+<a href="https://arxiv.org/abs/2303.16730" rel="noreferrer nofollow" target="_blank">TTA</a></td>
-        <td style="text-align:center;">$53.9$</td>
-        <td style="text-align:center;">$77.5$</td>
-        <td style="text-align:center;">$85.5$</td>
+        <td style="text-align:center;">CLIP + DN*</td>
+        <td style="text-align:center;">$52.9$</td>
+        <td style="text-align:center;">$76.4$</td>
+        <td style="text-align:center;">$84.9$</td>
         <td style="text-align:center;">$32.1$</td>
-        <td style="text-align:center;">$57.5$</td>
+        <td style="text-align:center;">$57.4$</td>
         <td style="text-align:center;">$68.3$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">CLIP + TTA + DN</td>
-        <td style="text-align:center;">$53.6 \pm 0.1$</td>
-        <td style="text-align:center;">$76.9 \pm 0.1$</td>
-        <td style="text-align:center;">$84.8 \pm 0.1$</td>
-        <td style="text-align:center;">$\textbf{34.8} \pm 0.0$</td>
-        <td style="text-align:center;">$\textbf{60.4} \pm 0.0$</td>
-        <td style="text-align:center;">$\textbf{70.8} \pm 0.1$</td>
+        <td style="text-align:center;">CLIP + <a href="https://arxiv.org/abs/2303.16730" rel="noreferrer nofollow" target="_blank">TTA</a> + DN*</td>
+        <td style="text-align:center;">$\textbf{54.7}$</td>
+        <td style="text-align:center;">$\textbf{77.8}$</td>
+        <td style="text-align:center;">$\textbf{85.6}$</td>
+        <td style="text-align:center;">$\textbf{33.8}$</td>
+        <td style="text-align:center;">$\textbf{59.4}$</td>
+        <td style="text-align:center;">$\textbf{70.1}$</td>
     </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + TTA + DN*</td>
-        <td style="text-align:center;">$\textbf{54.7} \pm 0.1$</td>
-        <td style="text-align:center;">$\textbf{77.8} \pm 0.1$</td>
-        <td style="text-align:center;">$\textbf{85.6} \pm 0.1$</td>
-        <td style="text-align:center;">$33.8 \pm 0.0$</td>
-        <td style="text-align:center;">$59.4 \pm 0.0$</td>
-        <td style="text-align:center;">$70.1 \pm 0.0$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + DN</td>
-        <td style="text-align:center;">$51.7 {\pm 0.1}$</td>
-        <td style="text-align:center;">$75.8 {\pm 0.1}$</td>
-        <td style="text-align:center;">$84.0 {\pm 0.1}$</td>
-        <td style="text-align:center;">$ 33.4 {\pm 0.0}$</td>
-        <td style="text-align:center;">$58.6 {\pm 0.1}$</td>
-        <td style="text-align:center;">$69.4 {\pm 0.1}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + DN*</td>
-        <td style="text-align:center;">$52.9 {\pm 0.1}$</td>
-        <td style="text-align:center;">$76.4 {\pm 0.1}$</td>
-        <td style="text-align:center;">$84.9 {\pm 0.1}$</td>
-        <td style="text-align:center;">$ 32.1 {\pm 0.1}$</td>
-        <td style="text-align:center;">$57.4 {\pm 0.0}$</td>
-        <td style="text-align:center;">${68.3} {\pm 0.1}$</td>
-    </tr>
+
 </table>
 
 #### Zero-shot Classification
@@ -160,12 +135,12 @@ Next, we present zero-shot classification performance on ImageNet1K, Cifar100, a
     </tr>
     <tr>
         <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.14169" rel="noreferrer nofollow" target="_blank">CALIP</a></td>
-        <td style="text-align:center;">$61.2\pm 0.2$</td>
-        <td style="text-align:center;">$87.5\pm 0.1$</td>
-        <td style="text-align:center;">$64.2\pm 0.1$</td>
-        <td style="text-align:center;">$88.9 \pm 0.0$</td>
-        <td style="text-align:center;">$56.1\pm 0.1$</td>
-        <td style="text-align:center;">$89.3 \pm 0.1$</td>
+        <td style="text-align:center;">$61.2$</td>
+        <td style="text-align:center;">$87.5$</td>
+        <td style="text-align:center;">$64.2$</td>
+        <td style="text-align:center;">$88.9$</td>
+        <td style="text-align:center;">$56.1$</td>
+        <td style="text-align:center;">$89.3$</td>
     </tr>
     <tr>
         <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.07511" rel="noreferrer nofollow" target="_blank">TPT</a></td>
@@ -177,49 +152,22 @@ Next, we present zero-shot classification performance on ImageNet1K, Cifar100, a
         <td style="text-align:center;">$88.8$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">CLIP + TTA</td>
-        <td style="text-align:center;">$62.4$</td>
-        <td style="text-align:center;">$88.5$</td>
-        <td style="text-align:center;">$66.0$</td>
-        <td style="text-align:center;">$90.5$</td>
-        <td style="text-align:center;">$56.9$</td>
-        <td style="text-align:center;">$90.0$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + TTA + DN</td>
-        <td style="text-align:center;">$63.0 \pm 0.0$</td>
-        <td style="text-align:center;">$88.8 \pm 0.0$</td>
-        <td style="text-align:center;">$\textbf{67.5} \pm 0.1$</td>
-        <td style="text-align:center;">$\textbf{90.7} \pm 0.1$</td>
-        <td style="text-align:center;">$58.8 \pm 0.2$</td>
-        <td style="text-align:center;">$\textbf{91.0} \pm 0.1$</td>
+        <td style="text-align:center;">CLIP + DN*</td>
+        <td style="text-align:center;">$61.7$</td>
+        <td style="text-align:center;">$87.8$</td>
+        <td style="text-align:center;">$65.1$</td>
+        <td style="text-align:center;">$89.4$</td>
+        <td style="text-align:center;">$57.3$</td>
+        <td style="text-align:center;">$90.2$</td>
     </tr>
     <tr>
         <td style="text-align:center;">CLIP + TTA + DN *</td>
-        <td style="text-align:center;">$63.2 \pm 0.0$</td>
-        <td style="text-align:center;">$\textbf{88.9} \pm 0.0$</td>
-        <td style="text-align:center;">$67.1 \pm 0.1$</td>
-        <td style="text-align:center;">$\textbf{90.7} \pm 0.0$</td>
-        <td style="text-align:center;">$58.1 \pm 0.1$</td>
-        <td style="text-align:center;">$90.7 \pm 0.0$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + DN</td>
-        <td style="text-align:center;">$61.6 \pm 0.1$</td>
-        <td style="text-align:center;">$87.7 \pm 0.1$</td>
-        <td style="text-align:center;">$65.5 \pm 0.2$</td>
-        <td style="text-align:center;">$89.2 \pm 0.2$</td>
-        <td style="text-align:center;">$57.9 \pm 0.1$</td>
-        <td style="text-align:center;">$90.5 \pm 0.1$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP + DN*</td>
-        <td style="text-align:center;">$61.7 \pm 0.1$</td>
-        <td style="text-align:center;">$87.8 \pm 0.0$</td>
-        <td style="text-align:center;">$65.1 \pm 0.1$</td>
-        <td style="text-align:center;">$89.4 \pm 0.0$</td>
-        <td style="text-align:center;">$57.3 \pm 0.0$</td>
-        <td style="text-align:center;">$90.2 \pm 0.1$</td>
+        <td style="text-align:center;">$63.2$</td>
+        <td style="text-align:center;">$\textbf{88.9}$</td>
+        <td style="text-align:center;">$\textbf{67.1}$</td>
+        <td style="text-align:center;">$\textbf{90.7}$</td>
+        <td style="text-align:center;">$58.1$</td>
+        <td style="text-align:center;">$\textbf{90.7}$</td>
     </tr>
 </table>
 
@@ -271,7 +219,7 @@ We see that on image captioning, adding DN improves upon existing baselines on F
         <td style="text-align:center;">35.4</td>
         <td style="text-align:center;">$\textbf{23.5}$</td>
     </tr>
-    <tr>
+    <tr  style="border-bottom:2px solid black">
         <td style="text-align:center;">CLIP + DN*</td>
         <td style="text-align:center;">53.2</td>
         <td style="text-align:center;">35.1</td>
@@ -319,170 +267,6 @@ We see that on image captioning, adding DN improves upon existing baselines on F
         <td style="text-align:center;">54.3</td>
         <td style="text-align:center;">36.9</td>
         <td style="text-align:center;">$\textbf{26.2}$</td>
-    </tr>
-</table>
-
-#### Cross-Modal Retrieval
-
-Below is cross-modal retrieval performance on MSCOCO in the zero-shot setting against different CLIP variants.
-
-<table>
-    <tr>
-        <td style="text-align:center;"></td>
-        <td colspan="6" style="text-align:center;">MSCOCO (5K test set)</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;"></td>
-        <td colspan="3" style="text-align:center;">Image $\rightarrow$ Text</td>
-        <td colspan="3" style="text-align:center;">Text $\rightarrow$ Image</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;"></td>
-        <td style="text-align:center;">R@1</td>
-        <td style="text-align:center;">R@5</td>
-        <td style="text-align:center;">R@10</td>
-        <td style="text-align:center;">R@1</td>
-        <td style="text-align:center;">R@5</td>
-        <td style="text-align:center;">R@10</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B16) + TTA</td>
-        <td style="text-align:center;">$53.6$</td>
-        <td style="text-align:center;">$77.5$</td>
-        <td style="text-align:center;">$85.1$</td>
-        <td style="text-align:center;">$33.8$</td>
-        <td style="text-align:center;">$58.7$</td>
-        <td style="text-align:center;">$69.1$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B16) + TTA + DN*</td>
-        <td style="text-align:center;">$\textbf{54.6}$</td>
-        <td style="text-align:center;">$\textbf{78.5}$</td>
-        <td style="text-align:center;">$\textbf{86.1}$</td>
-        <td style="text-align:center;">$\textbf{35.7}$</td>
-        <td style="text-align:center;">$\textbf{60.7}$</td>
-        <td style="text-align:center;">$\textbf{70.8}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(L14) + TTA</td>
-        <td style="text-align:center;">$57.7$</td>
-        <td style="text-align:center;">$80.1$</td>
-        <td style="text-align:center;">$87.8$</td>
-        <td style="text-align:center;">$36.8$</td>
-        <td style="text-align:center;">$61.3$</td>
-        <td style="text-align:center;">$71.2$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(L14) + TTA + DN*</td>
-        <td style="text-align:center;">$\textbf{58.8}$</td>
-        <td style="text-align:center;">$\textbf{81.3}$</td>
-        <td style="text-align:center;">$\textbf{88.4}$</td>
-        <td style="text-align:center;">$\textbf{38.6}$</td>
-        <td style="text-align:center;">$\textbf{63.1}$</td>
-        <td style="text-align:center;">$\textbf{72.9}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B32-Laion) + TTA</td>
-        <td style="text-align:center;">$58.5$</td>
-        <td style="text-align:center;">$80.9$</td>
-        <td style="text-align:center;">$88.1$</td>
-        <td style="text-align:center;">$40.0$</td>
-        <td style="text-align:center;">$65.8$</td>
-        <td style="text-align:center;">$76.0$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B32-Laion) + TTA + DN*</td>
-        <td style="text-align:center;">$\textbf{60.7}$</td>
-        <td style="text-align:center;">$\textbf{82.3}$</td>
-        <td style="text-align:center;">$\textbf{88.9}$</td>
-        <td style="text-align:center;">$\textbf{40.8}$</td>
-        <td style="text-align:center;">$\textbf{66.5}$</td>
-        <td style="text-align:center;">$\textbf{76.4}$</td>
-    </tr>
-</table>
-
-#### Zero-shot Classification
-
-Finally, we present zero-shot classification performance on ImageNet1K, Cifar100, and SUN397.
-
-<table>
-    <tr>
-        <td style="text-align:center;"></td>
-        <td colspan="2" style="text-align:center;">ImageNet1K</td>
-        <td colspan="2" style="text-align:center;">Cifar100</td>
-        <td colspan="2" style="text-align:center;">SUN397</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;"></td>
-        <td style="text-align:center;">Acc@1</td>
-        <td style="text-align:center;">Acc@5</td>
-        <td style="text-align:center;">Acc@1</td>
-        <td style="text-align:center;">Acc@5</td>
-        <td style="text-align:center;">Acc@1</td>
-        <td style="text-align:center;">Acc@5</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B16) + TTA</td>
-        <td style="text-align:center;">$67.1$</td>
-        <td style="text-align:center;">$91.5$</td>
-        <td style="text-align:center;">$67.7$</td>
-        <td style="text-align:center;">$90.1$</td>
-        <td style="text-align:center;">$60.0$</td>
-        <td style="text-align:center;">$91.4$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B16) + TTA + DN *</td>
-        <td style="text-align:center;">$\textbf{67.8}$</td>
-        <td style="text-align:center;">$\textbf{92.0}$</td>
-        <td style="text-align:center;">$\textbf{71.1}$</td>
-        <td style="text-align:center;">$\textbf{92.2}$</td>
-        <td style="text-align:center;">$\textbf{61.9}$</td>
-        <td style="text-align:center;">$\textbf{92.4}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B16) + TTA + DN *</td>
-        <td style="text-align:center;">$\textbf{67.8}$</td>
-        <td style="text-align:center;">$\textbf{92.0}$</td>
-        <td style="text-align:center;">$\textbf{71.1}$</td>
-        <td style="text-align:center;">$\textbf{92.2}$</td>
-        <td style="text-align:center;">$\textbf{61.9}$</td>
-        <td style="text-align:center;">$\textbf{92.4}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(L14) + TTA</td>
-        <td style="text-align:center;">$73.1$</td>
-        <td style="text-align:center;">$93.4$</td>
-        <td style="text-align:center;">$77.6$</td>
-        <td style="text-align:center;">$94.0$</td>
-        <td style="text-align:center;">$62.1$</td>
-        <td style="text-align:center;">$92.5$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(L14) + TTA + DN *</td>
-        <td style="text-align:center;">$\textbf{74.2}$</td>
-        <td style="text-align:center;">$\textbf{94.1}$</td>
-        <td style="text-align:center;">$\textbf{80.4}$</td>
-        <td style="text-align:center;">$\textbf{95.4}$</td>
-        <td style="text-align:center;">$\textbf{63.8}$</td>
-        <td style="text-align:center;">$\textbf{93.3}$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B32-Laion) + TTA</td>
-        <td style="text-align:center;">$66.9$</td>
-        <td style="text-align:center;">$89.4$</td>
-        <td style="text-align:center;">$75.7$</td>
-        <td style="text-align:center;">$94.0$</td>
-        <td style="text-align:center;">$63.9$</td>
-        <td style="text-align:center;">$93.5$</td>
-    </tr>
-    <tr>
-        <td style="text-align:center;">CLIP(B32-Laion) + TTA + DN *</td>
-        <td style="text-align:center;">$\textbf{67.2}$</td>
-        <td style="text-align:center;">$\textbf{90.3}$</td>
-        <td style="text-align:center;">$\textbf{76.2}$</td>
-        <td style="text-align:center;">$\textbf{94.3}$</td>
-        <td style="text-align:center;">$\textbf{64.3}$</td>
-        <td style="text-align:center;">$\textbf{93.7}$</td>
     </tr>
 </table>
 
