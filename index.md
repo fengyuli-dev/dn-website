@@ -162,6 +162,15 @@ Next, we present zero-shot classification performance on ImageNet1K, Cifar100, a
         <td style="text-align:center;">$89.4$</td>
     </tr>
     <tr>
+        <td style="text-align:center;">CLIP + DN*</td>
+        <td style="text-align:center;">$61.7$</td>
+        <td style="text-align:center;">$87.8$</td>
+        <td style="text-align:center;">$65.1$</td>
+        <td style="text-align:center;">$89.4$</td>
+        <td style="text-align:center;">$57.3$</td>
+        <td style="text-align:center;">$90.2$</td>
+    </tr>
+    <tr>
         <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.14169" rel="noreferrer nofollow" target="_blank">CALIP</a></td>
         <td style="text-align:center;">$61.2$</td>
         <td style="text-align:center;">$87.5$</td>
@@ -171,7 +180,7 @@ Next, we present zero-shot classification performance on ImageNet1K, Cifar100, a
         <td style="text-align:center;">$89.3$</td>
     </tr>
     <tr>
-        <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.07511" rel="noreferrer nofollow" target="_blank">TPT</a></td>
+        <td style="text-align:center;"><a href="https://arxiv.org/abs/2209.07511" rel="noreferrer nofollow" target="_blank">TPT</a> (Inefficient)</td>
         <td style="text-align:center;">$\textbf{63.5}$</td>
         <td style="text-align:center;">$87.1$</td>
         <td style="text-align:center;">$65.2$</td>
@@ -180,13 +189,13 @@ Next, we present zero-shot classification performance on ImageNet1K, Cifar100, a
         <td style="text-align:center;">$88.8$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">CLIP + DN*</td>
-        <td style="text-align:center;">$61.7$</td>
-        <td style="text-align:center;">$87.8$</td>
-        <td style="text-align:center;">$65.1$</td>
-        <td style="text-align:center;">$89.4$</td>
-        <td style="text-align:center;">$57.3$</td>
-        <td style="text-align:center;">$90.2$</td>
+        <td style="text-align:center;">CLIP + TTA</td>
+        <td style="text-align:center;">$62.4$</td>
+        <td style="text-align:center;">$88.5$</td>
+        <td style="text-align:center;">$66.0$</td>
+        <td style="text-align:center;">$90.5$</td>
+        <td style="text-align:center;">$56.9$</td>
+        <td style="text-align:center;">$90.0$</td>
     </tr>
     <tr>
         <td style="text-align:center;">CLIP + TTA + DN *</td>
