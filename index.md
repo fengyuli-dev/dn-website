@@ -328,13 +328,13 @@ Need change after we update paper version on arXiv.
 
 ```
 
-@misc{zhou2023distribution,
-title={Distribution Normalization: An "Effortless" Test-Time Augmentation for Contrastively Learned Visual-language Models},
-author={Yifei Zhou and Juntao Ren and Fengyu Li and Ramin Zabih and Ser-Nam Lim},
-year={2023},
-eprint={2302.11084},
-archivePrefix={arXiv},
-primaryClass={cs.LG}
+@misc{zhou2023testtime,
+      title={Test-Time Distribution Normalization for Contrastively Learned Vision-language Models},
+      author={Yifei Zhou and Juntao Ren and Fengyu Li and Ramin Zabih and Ser-Nam Lim},
+      year={2023},
+      eprint={2302.11084},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }
 
 ```
