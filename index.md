@@ -324,7 +324,6 @@ We see that on image captioning, adding DN improves upon existing baselines on F
 
 ### Citation
 
-Need change after we update paper version on arXiv.
 
 ```
 
