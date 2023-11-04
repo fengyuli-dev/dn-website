@@ -61,7 +61,7 @@ $$
 S_{(0)}(x_0, y_0) = \phi(x_0)^\top \psi(y_0).
 $$
 
-However, if we can estimate the mean of the unlabeled distribution $\mu_x$ and $\mu_y$ for $\phi(x_1)$ and $\psi(y_1)$, we can perform a first-order approximation of the distribution with $\widehat{P}(\phi(x_1)) = \mathbb{I}\{\phi(x_1) = \mu_x\}$ and $\widehat{P}(\psi(y_1)) = \mathbb{I}\{\psi(y_1) = \mu_y\}$, so that $\widehat{P}(\phi(x_1)), \widehat{P}(\psi(y_1))$ matches the true distribution in terms of the first-order moment. We are thus left with
+However, if we can estimate the mean of the unlabeled distribution $\mu_x$ and $\mu_y$ for $\phi(x_1)$ and $\psi(y_1)$, we can perform a first-order approximation of the distribution with $\widehat{P}(\phi(x_1)) = \mathbb{I}\left{\phi(x_1) = \mu_x\right}$ and $\widehat{P}(\psi(y_1)) = \mathbb{I}\left{\psi(y_1) = \mu_y\right}$, so that $\widehat{P}(\phi(x_1)), \widehat{P}(\psi(y_1))$ matches the true distribution in terms of the first-order moment. We are thus left with
 
 $$
     \mathcal{L}_{NCE}^{(1)}(\mathcal{D}_T) = 2n \cdot \mathbb{E}_{x_0, y_0 \sim \mathcal{D}_T} \left[e^{\phi(x_0)^\intercal (\mu_y - \psi(y_0))/\tau} + e^{(\mu_x - \phi(x_0))^\intercal \psi(y_0)/\tau} \right].
