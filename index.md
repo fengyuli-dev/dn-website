@@ -121,7 +121,7 @@ We first present results on cross-modal retrieval performance on MSCOCO in the z
         <td style="text-align:center;">$68.3$</td>
     </tr>
     <tr>
-        <td style="text-align:center;">CLIP + <a href="https://arxiv.org/abs/2303.16730" rel="noreferrer nofollow" target="_blank">TTA</a> + DN*</td>
+        <td style="text-align:center;">CLIP + <a href="https://arxiv.org/abs/2011.11156" rel="noreferrer nofollow" target="_blank">TTA</a> + DN*</td>
         <td style="text-align:center;">$\textbf{54.7}$</td>
         <td style="text-align:center;">$\textbf{77.8}$</td>
         <td style="text-align:center;">$\textbf{85.6}$</td>
