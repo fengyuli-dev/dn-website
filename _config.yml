@@ -3,7 +3,7 @@ description: "A NeurIPS 2023 Paper by"
 buttons:
   Paper: "https://arxiv.org/abs/2302.11084"
   Code: "https://github.com/fengyuli-dev/distribution-normalization"
-  Slides: "/assets/slides.pdf"
+  Slides: "./assets/slides.pdf"
 theme: jekyll-theme-cayman
 
 sphinx:
